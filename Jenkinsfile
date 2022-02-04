@@ -8,7 +8,7 @@ pipeline {
         label 'slave1'
       }
       steps{
-        sh 'sudo apt update'
+        sh ' python3 --version'
         
       }
     }
@@ -17,7 +17,7 @@ pipeline {
         label 'slave2'
       }
       steps{
-        sh 'sudo apt update'
+        sh ' python3 --version '
         
       }
     }
