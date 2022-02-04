@@ -7,6 +7,7 @@ pipeline {
         sh 'sudo apt update'
         sh 'sudo apt install python3-pip'
       }
+    }
     
     stage('build') {
       agent slave1
