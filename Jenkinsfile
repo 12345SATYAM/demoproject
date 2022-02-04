@@ -39,8 +39,7 @@ pipeline {
         label 'slave1'
       }
       steps {
-        sh 'python3 app.py'
-        sh 'curl 0.0.0.0:5000'
+        sh 'python3 app.py | curl 0.0.0.0:5000'
       }
     }    
     
