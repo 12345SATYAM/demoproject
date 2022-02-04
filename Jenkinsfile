@@ -22,6 +22,34 @@ pipeline {
     }
     stage('test') {
       agent {
+        label 'slave1'
+      }
+    
+      steps {
+        sh 'python3 app.py'
+      }   
+    }
+    stage('init'){
+      agent {
+        label 'slave2'
+      }
+      steps{
+        sh 'sudo apt update'
+        
+      }
+    }
+    
+    stage('build') {
+      agent {
+        label 'slave2'
+      }
+      
+      steps {
+        sh 'pip install -r requirements.txt'
+      }
+    }
+    stage('test') {
+      agent {
         label 'slave2'
       }
     
