@@ -9,13 +9,7 @@ pipeline {
         sh 'sudo apt update'
         
       }
-      agent {
-        label 'slave2'
-      }
-      steps{
-        sh 'sudo apt update'
-        
-      }
+      
     }
     
     stage('build1') {
