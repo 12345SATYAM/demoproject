@@ -20,15 +20,7 @@ pipeline {
         sh 'pip install -r requirements.txt'
       }
     }
-    stage('test1') {
-      agent {
-        label 'slave1'
-      }
-    
-      steps {
-        sh 'python3 app.py'
-      }   
-    }
+   
     stage('init2'){
       agent {
         label 'slave2'
