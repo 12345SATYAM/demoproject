@@ -2,7 +2,9 @@ pipeline {
   agent none
   stages {
     
-    stage('init1'){
+    stage('init'){
+      parallel{
+      stage('init1'){
       agent {
         label 'slave1'
       }
@@ -10,7 +12,18 @@ pipeline {
         sh 'sudo apt update'
         
       }
+    }
+        stage('init2'){
+      agent {
+        label 'slave2'
+      }
+      steps{
+        sh 'sudo apt update'
+        
+      }
+    }
       
+    }
     }
     
     stage('build1') {
@@ -23,15 +36,7 @@ pipeline {
       }
     }
    
-    stage('init2'){
-      agent {
-        label 'slave2'
-      }
-      steps{
-        sh 'sudo apt update'
-        
-      }
-    }
+    
     
     stage('build2') {
       agent {
