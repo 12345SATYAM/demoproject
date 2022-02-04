@@ -2,10 +2,15 @@ pipeline {
   agent none
   stages {
     stage('pythoncheck'){
-      agent{ docker { image 'python:3.8.2'}}
+      agent{ 
+        docker {
+          image 'python:3.8.2'
+        }
+      }
       steps{
         sh 'python --version'
       }
+    }
     stage('init1'){
       agent {
         label 'slave1'
