@@ -34,14 +34,7 @@ pipeline {
         sh 'pip install -r requirements.txt'
       }
     }
-    stage('test1'){
-      agent {
-        label 'slave1'
-      }
-      steps {
-        sh 'python3 app.py | curl 0.0.0.0:5000'
-      }
-    }    
+      
     
     stage('build2') {
       agent {
