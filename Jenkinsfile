@@ -1,7 +1,16 @@
 pipeline {
   agent none
   stages {
-    
+    stage('check'){
+      agent {
+        docker {
+          image : 'python'
+        }
+      }
+      steps {
+        sh 'python3 --version'
+      }
+    }
     
     
     stage('init'){
