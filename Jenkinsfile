@@ -1,7 +1,7 @@
 pipeline {
   agent none
   stages {
-    stage('init'){
+    stage('init1'){
       agent {
         label 'slave1'
       }
@@ -11,7 +11,7 @@ pipeline {
       }
     }
     
-    stage('build') {
+    stage('build1') {
       agent {
         label 'slave1'
       }
@@ -20,7 +20,7 @@ pipeline {
         sh 'pip install -r requirements.txt'
       }
     }
-    stage('test') {
+    stage('test1') {
       agent {
         label 'slave1'
       }
@@ -29,7 +29,7 @@ pipeline {
         sh 'python3 app.py'
       }   
     }
-    stage('init'){
+    stage('init2'){
       agent {
         label 'slave2'
       }
@@ -39,7 +39,7 @@ pipeline {
       }
     }
     
-    stage('build') {
+    stage('build2') {
       agent {
         label 'slave2'
       }
@@ -48,7 +48,7 @@ pipeline {
         sh 'pip install -r requirements.txt'
       }
     }
-    stage('test') {
+    stage('test2') {
       agent {
         label 'slave2'
       }
